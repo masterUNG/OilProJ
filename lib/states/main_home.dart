@@ -4,6 +4,7 @@ import 'package:oilproj/bodys/add_tree.dart';
 import 'package:oilproj/bodys/profile.dart';
 import 'package:oilproj/bodys/show_map.dart';
 import 'package:oilproj/utility/app_controller.dart';
+import 'package:oilproj/utility/app_service.dart';
 import 'package:oilproj/widgets/widget_text.dart';
 
 class MainHome extends StatefulWidget {
@@ -40,11 +41,11 @@ class _MainHomeState extends State<MainHome> {
   void initState() {
     super.initState();
 
+    AppService().processFindPosition();
+
     for (var i = 0; i < titles.length; i++) {
       items.add(
-        BottomNavigationBarItem(
-          icon: Icon(iconDatas[i]),label: titles[i]
-        ),
+        BottomNavigationBarItem(icon: Icon(iconDatas[i]), label: titles[i]),
       );
     }
   }
