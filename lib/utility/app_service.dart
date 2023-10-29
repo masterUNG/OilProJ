@@ -1,7 +1,10 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:oilproj/utility/app_controller.dart';
 import 'package:oilproj/utility/app_dialog.dart';
 import 'package:oilproj/widgets/widget_text_button.dart';
@@ -65,5 +68,25 @@ class AppService {
             exit(0);
           },
         ));
+  }
+
+  Future<void> processTakePhoto() async {
+    var result = await ImagePicker()
+        .pickImage(source: ImageSource.camera, maxWidth: 800, maxHeight: 800);
+
+    if (result != null) {
+      File file = File(result.path);
+      appController.files.add(file);
+    }
+  }
+
+  Future<void> readAllTreeDatabase() async {
+
+    String urlApi = 'https://www.androidthai.in.th/edumall/oil/getAlldatabase.php';
+    await Dio().get(urlApi).then((value) {
+      for (var element in json.decode(value.data)) {
+        
+      }
+    });
   }
 }
