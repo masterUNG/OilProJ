@@ -43,6 +43,8 @@ class _MainHomeState extends State<MainHome> {
 
     AppService().processFindPosition();
 
+     AppService().readAllTreeDatabase();
+
     for (var i = 0; i < titles.length; i++) {
       items.add(
         BottomNavigationBarItem(icon: Icon(iconDatas[i]), label: titles[i]),

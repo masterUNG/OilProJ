@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oilproj/utility/app_constant.dart';
 import 'package:oilproj/utility/app_controller.dart';
 import 'package:oilproj/utility/app_service.dart';
 import 'package:oilproj/widgets/widget_icon_button.dart';
@@ -19,13 +20,45 @@ class _AddTreeState extends State<AddTree> {
   @override
   void initState() {
     super.initState();
-    AppService().readAllTreeDatabase();
+   
   }
 
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [displayImage(), cameraButton()],
+      children: [
+        displayImage(),
+        cameraButton(),
+        Obx(() {
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                decoration: AppConstant().borderBox(),
+                width: 250,
+                child: DropdownButton(
+                  isExpanded: true,
+                  underline: const SizedBox(),
+                  hint: const WidgetText(data: 'Please Choose Name'),
+                  value: appController.chooseDatabaseModels.last,
+                  items: appController.databaseModels
+                      .map(
+                        (element) => DropdownMenuItem(
+                          child: WidgetText(data: element.name),
+                          value: element,
+                        ),
+                      )
+                      .toList(),
+                  onChanged: (value) {
+                    appController.chooseDatabaseModels.add(value);
+                  },
+                ),
+              ),
+            ],
+          );
+        }),
+      ],
     );
   }
 
@@ -57,7 +90,7 @@ class _AddTreeState extends State<AddTree> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            decoration: BoxDecoration(border: Border.all()),
+            decoration: AppConstant().borderBox(),
             child: appController.files.isEmpty
                 ? const WidgetImage(
                     size: 250,

@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:oilproj/models/database_model.dart';
 import 'package:oilproj/utility/app_controller.dart';
 import 'package:oilproj/utility/app_dialog.dart';
 import 'package:oilproj/widgets/widget_text_button.dart';
@@ -81,11 +82,15 @@ class AppService {
   }
 
   Future<void> readAllTreeDatabase() async {
-
-    String urlApi = 'https://www.androidthai.in.th/edumall/oil/getAlldatabase.php';
+    if (appController.databaseModels.isNotEmpty) {
+      appController.databaseModels.clear();
+    }
+    String urlApi =
+        'https://www.androidthai.in.th/edumall/oil/getAlldatabase.php';
     await Dio().get(urlApi).then((value) {
       for (var element in json.decode(value.data)) {
-        
+        DatabaseModel databaseModel = DatabaseModel.fromMap(element);
+        appController.databaseModels.add(databaseModel);
       }
     });
   }
