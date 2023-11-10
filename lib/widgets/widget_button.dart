@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:oilproj/widgets/widget_text.dart';
 
 class WidgetButton extends StatelessWidget {
@@ -14,6 +15,9 @@ class WidgetButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: pressFunc, child: WidgetText(data: data));
+    return GFButton(
+      onPressed: pressFunc,
+      child: WidgetText(data: data),color: Theme.of(context).primaryColor,
+    );
   }
 }

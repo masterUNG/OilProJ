@@ -28,7 +28,7 @@ class WidgetForm extends StatelessWidget {
           label: labelWidget,
           hintText: hint,
           suffixIcon: suffigWidget,
-          filled: true,
+          filled: true,fillColor: Colors.grey.shade200,
           border: InputBorder.none,
         ),
       ),

@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:oilproj/states/authen.dart';
 
 void main() {
-  
   HttpOverrides.global = MyHttpOverride();
 
   runApp(const MyApp());
@@ -20,6 +19,8 @@ class MyApp extends StatelessWidget {
       home: Authen(),
       theme: ThemeData(
         useMaterial3: true,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green),
+        scaffoldBackgroundColor: Colors.white,
       ),
     );
   }
