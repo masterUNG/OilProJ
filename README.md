@@ -1,16 +1,18 @@
-# oilproj
 
-A new Flutter project.
+# คอร์ส สอน Flutter ตัวต่อตัว เลือกเจาะ หัวข้อที่ต้องการเรียนได้
+### Workshop Project แบบจับมือทำ กับ มาสเตอร์ อึ่ง
+## ต้องการรายละเอียดเพิ่ม หรือ ต้องการ ปรึกษาการทำ โปรเจ็คแอนดรอยด์, โปรเจ็ค iOS, โปรเจ็คเว็ปไซด์
+### ติดต่อมาสเตอร์ อึ่ง เลย ที่
+[![IMG_6065.jpg](https://s26.postimg.cc/kajrs6fbt/IMG_6065.jpg)](https://postimg.cc/image/7j5llo5jp/)
+## ติดต่อมาสเตอร์
+https://bit.ly/32yar4n
 
-## Getting Started
+http://line.me/ti/p/XI-Ksj7Jzq
 
-This project is a starting point for a Flutter application.
+[![Line-_QR.jpg](https://s26.postimg.cc/dwuoozv15/Line-_QR.jpg)](https://postimg.cc/image/mrvizijth/)
 
-A few resources to get you started if this is your first Flutter project:
+https://www.androidthai.in.th
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+phrombutr@gmail.com
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Mobile 0818595309
