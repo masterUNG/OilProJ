@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:oilproj/models/user_model.dart';
 import 'package:oilproj/states/create_account.dart';
 import 'package:oilproj/states/main_home.dart';
@@ -79,7 +80,7 @@ class _AuthenState extends State<Authen> {
                                   String urlApi =
                                       'https://www.androidthai.in.th/edumall/oil/getUserWhereUser.php?isAdd=true&user=${userController.text}';
 
-                                  await Dio().get(urlApi).then((value) {
+                                  await Dio().get(urlApi).then((value) async {
                                     if (value.toString() == 'null') {
                                       Get.snackbar('User False',
                                           'ไม่มี User นี่ใน ฐานข้อมูล');
@@ -92,6 +93,9 @@ class _AuthenState extends State<Authen> {
                                         if (passwordController.text ==
                                             userModel.password) {
                                           //Login Success
+
+                                          await GetStorage()
+                                              .write('user', userModel.toMap());
 
                                           Get.snackbar('Login Success',
                                               'Welcome to My App');
