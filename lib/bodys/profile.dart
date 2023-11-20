@@ -11,7 +11,7 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        WidgetText(data: 'Profile'),
+        const WidgetText(data: 'Profile'),
         WidgetButton(
           data: 'Sign Out',
           pressFunc: () async {

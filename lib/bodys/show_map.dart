@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:oilproj/utility/app_controller.dart';
-import 'package:oilproj/widgets/widget_text.dart';
 
 class ShowMap extends StatefulWidget {
   const ShowMap({super.key});
