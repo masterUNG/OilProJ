@@ -139,7 +139,7 @@ class _AuthenState extends State<Authen> {
   Row displayHead() {
     return Row(
       children: [
-        WidgetImage(
+        const WidgetImage(
           size: 60,
         ),
         WidgetText(
