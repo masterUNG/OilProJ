@@ -6,6 +6,6 @@ class IntroPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: SafeArea(child: WidgetText(data: 'This is intro ทดสอบการ Revert edit time 1')),);
+    return const Scaffold(body: SafeArea(child: WidgetText(data: 'This is intro ทดสอบการ Revert edit time 2')),);
   }
 }
