@@ -90,10 +90,7 @@ class AppService {
         'https://www.androidthai.in.th/edumall/oil/getAlldatabase.php';
 
     await Dio().get(urlApi).then((value) {
-      // value.data.forEach((element) {
-      //   DatabaseModel databaseModel = DatabaseModel.fromMap(element);
-      //   appController.databaseModels.add(databaseModel);
-      // });
+      // print('##15dec value จาก api --> $value');
 
       for (var element in json.decode(value.data)) {
         DatabaseModel databaseModel = DatabaseModel.fromMap(element);
@@ -101,7 +98,7 @@ class AppService {
       }
 
       print(
-          '##15dec ขนาดของโมเดล databaseModels ----> ${appController.databaseModels.length}');
+          '##15dec ขนาดของ databaseModels ---> ${appController.databaseModels.length}');
     });
   }
 }
