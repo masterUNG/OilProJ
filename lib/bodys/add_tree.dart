@@ -29,39 +29,44 @@ class _AddTreeState extends State<AddTree> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
+        WidgetText(data: appController.positions.last.toString()),
         displayImage(),
         cameraButton(),
-        Obx(() {
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                decoration: AppConstant().borderBox(),
-                width: 250,
-                child: DropdownButton(
-                  isExpanded: true,
-                  underline: const SizedBox(),
-                  hint: const WidgetText(data: 'Please Choose Name'),
-                  value: appController.chooseDatabaseModels.last,
-                  items: appController.databaseModels
-                      .map(
-                        (element) => DropdownMenuItem(
-                          child: WidgetText(data: element.name),
-                          value: element,
-                        ),
-                      )
-                      .toList(),
-                  onChanged: (value) {
-                    appController.chooseDatabaseModels.add(value);
-                  },
-                ),
-              ),
-            ],
-          );
-        }),
+        dropdownNameTree(),
       ],
     );
+  }
+
+  Obx dropdownNameTree() {
+    return Obx(() {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: AppConstant().borderBox(),
+              width: 250,
+              child: DropdownButton(
+                isExpanded: true,
+                underline: const SizedBox(),
+                hint: const WidgetText(data: 'Please Choose Name'),
+                value: appController.chooseDatabaseModels.last,
+                items: appController.databaseModels
+                    .map(
+                      (element) => DropdownMenuItem(
+                        child: WidgetText(data: element.name),
+                        value: element,
+                      ),
+                    )
+                    .toList(),
+                onChanged: (value) {
+                  appController.chooseDatabaseModels.add(value);
+                },
+              ),
+            ),
+          ],
+        );
+      });
   }
 
   Row cameraButton() {

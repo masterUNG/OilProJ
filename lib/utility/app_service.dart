@@ -58,7 +58,7 @@ class AppService {
           ));
     }
   }
-   //test git
+  //test git
 
   void dialogCallPermission() {
     AppDialog().normalDialog(
@@ -88,11 +88,20 @@ class AppService {
     }
     String urlApi =
         'https://www.androidthai.in.th/edumall/oil/getAlldatabase.php';
+
     await Dio().get(urlApi).then((value) {
+      // value.data.forEach((element) {
+      //   DatabaseModel databaseModel = DatabaseModel.fromMap(element);
+      //   appController.databaseModels.add(databaseModel);
+      // });
+
       for (var element in json.decode(value.data)) {
         DatabaseModel databaseModel = DatabaseModel.fromMap(element);
         appController.databaseModels.add(databaseModel);
       }
+
+      print(
+          '##15dec ขนาดของโมเดล databaseModels ----> ${appController.databaseModels.length}');
     });
   }
 }

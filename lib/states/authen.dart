@@ -8,6 +8,7 @@ import 'package:oilproj/models/user_model.dart';
 import 'package:oilproj/states/create_account.dart';
 import 'package:oilproj/states/main_home.dart';
 import 'package:oilproj/utility/app_constant.dart';
+import 'package:oilproj/utility/app_dialog.dart';
 import 'package:oilproj/widgets/widget_button.dart';
 import 'package:oilproj/widgets/widget_form.dart';
 import 'package:oilproj/widgets/widget_image.dart';
@@ -128,6 +129,8 @@ class _AuthenState extends State<Authen> {
           WidgetTextButton(
             data: 'Create New Account',
             pressFunc: () {
+              // AppDialog().gfAlert();
+
               Get.to(const CreateAccount());
             },
           ),

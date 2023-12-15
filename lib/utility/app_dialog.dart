@@ -4,6 +4,7 @@ import 'package:oilproj/widgets/widget_text.dart';
 import 'package:oilproj/widgets/widget_text_button.dart';
 
 class AppDialog {
+
   void normalDialog({
     required String title,
     Widget? actionWidget,
@@ -20,5 +21,9 @@ class AppDialog {
             )
       ],
     ));
+  }
+
+  void gfAlert() {
+    
   }
 }
