@@ -29,6 +29,7 @@ class _AddTreeState extends State<AddTree> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
+        WidgetText(data: 'Lat, Lng', textStyle: AppConstant().h2Style(),),
         WidgetText(data: appController.positions.last.toString()),
         displayImage(),
         cameraButton(),
