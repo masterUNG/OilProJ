@@ -87,7 +87,8 @@ class _MainHomeState extends State<MainHome> {
                             lat: appController.positions.last.latitude
                                 .toString(),
                             lng: appController.positions.last.longitude
-                                .toString(), dateTimeRec: DateTime.now().toString(),
+                                .toString(),
+                            dateTimeRec: DateTime.now().toString(),
                           );
                         }
                       },
@@ -102,6 +103,7 @@ class _MainHomeState extends State<MainHome> {
           currentIndex: appController.indexBody.value,
           onTap: (value) {
             appController.indexBody.value = value;
+            AppService().processFindPosition();
           },
         ),
       );

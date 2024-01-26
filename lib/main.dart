@@ -30,7 +30,7 @@ Future<void> main() async {
     print('user ---> $user');
 
     AppController appController = Get.put(AppController());
-    appController.mapCurrentLogin.value = user;
+    appController.mapCurrentLogin.value = user ?? {};
 
     if (user == null) {
       //Non Login
