@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' as dio;
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
@@ -90,7 +91,7 @@ class AppService {
     String urlApi =
         'https://www.androidthai.in.th/edumall/oil/getAlldatabase.php';
 
-    await Dio().get(urlApi).then((value) {
+    await dio.Dio().get(urlApi).then((value) {
       // print('##15dec value จาก api --> $value');
 
       for (var element in json.decode(value.data)) {
@@ -112,12 +113,30 @@ class AppService {
     required String lng,
     required String dateTimeRec,
   }) async {
-    String urlAPI =
-        'https://www.androidthai.in.th/edumall/oil/insertTree.php?isAdd=true&idRec=$idRec&idTree=$idTree&nameTree=$nameTree&urlImage=$urlImage&lat=$lat&lng=$lng&dateTimeRec=$dateTimeRec';
+    await findUrlUploadImage().then((value)async {
+       String urlAPI =
+        'https://www.androidthai.in.th/edumall/oil/insertTree.php?isAdd=true&idRec=$idRec&idTree=$idTree&nameTree=$nameTree&urlImage=$value&lat=$lat&lng=$lng&dateTimeRec=$dateTimeRec';
 
-    await Dio().get(urlAPI).then((value) {
+    await dio.Dio().get(urlAPI).then((value) {
       Get.snackbar('Insert Tree Success', 'Inser Tree Data Success',
           backgroundColor: GFColors.INFO);
     });
+    });
+  }
+
+  Future<String> findUrlUploadImage() async {
+    String urlAPI = 'https://www.androidthai.in.th/edumall/oil/saveFile.php';
+    String nameFile = 'image${Random().nextInt(1000)}.jpg';
+
+    Map<String, dynamic> map = {};
+    map['file'] = await dio.MultipartFile.fromFile(
+        appController.files.last.path,
+        filename: nameFile);
+
+    dio.FormData formData = dio.FormData.fromMap(map);
+
+    await dio.Dio().post(urlAPI, data: formData);
+
+    return 'https://www.androidthai.in.th/edumall/oil/image/$nameFile';
   }
 }
