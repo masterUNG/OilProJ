@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:oilproj/states/authen.dart';
 import 'package:oilproj/states/main_home.dart';
+import 'package:oilproj/utility/app_controller.dart';
 
 String? firstPage;
 var getPages = <GetPage<dynamic>>[
@@ -28,6 +29,9 @@ Future<void> main() async {
     var user = GetStorage().read('user');
     print('user ---> $user');
 
+    AppController appController = Get.put(AppController());
+    appController.mapCurrentLogin.value = user;
+
     if (user == null) {
       //Non Login
       firstPage = '/authen';
@@ -36,8 +40,6 @@ Future<void> main() async {
       firstPage = '/mainHome';
       runApp(const MyApp());
     }
-
-    
   });
 }
 
@@ -46,7 +48,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(debugShowCheckedModeBanner: false,
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       getPages: getPages,
       initialRoute: firstPage,
       theme: ThemeData(

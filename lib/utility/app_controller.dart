@@ -10,4 +10,6 @@ class AppController extends GetxController {
   RxList<File> files = <File>[].obs;
   RxList<DatabaseModel> databaseModels = <DatabaseModel>[].obs;
   RxList<DatabaseModel?> chooseDatabaseModels = <DatabaseModel?>[null].obs;
+
+  RxMap<String, dynamic> mapCurrentLogin = <String,dynamic>{}.obs;
 }

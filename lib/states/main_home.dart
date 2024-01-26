@@ -77,7 +77,19 @@ class _MainHomeState extends State<MainHome> {
                               'Please Choose Name Tree From Dropdown',
                               backgroundColor: GFColors.DANGER,
                               colorText: GFColors.WHITE);
-                        } else {}
+                        } else {
+                          AppService().insertNewTree(
+                            idRec: appController.mapCurrentLogin['id'],
+                            idTree: appController.chooseDatabaseModels.last!.id,
+                            nameTree:
+                                appController.chooseDatabaseModels.last!.name,
+                            urlImage: '',
+                            lat: appController.positions.last.latitude
+                                .toString(),
+                            lng: appController.positions.last.longitude
+                                .toString(), dateTimeRec: DateTime.now().toString(),
+                          );
+                        }
                       },
                     ),
                   )

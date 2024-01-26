@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:oilproj/models/database_model.dart';
 import 'package:oilproj/utility/app_controller.dart';
@@ -99,6 +100,24 @@ class AppService {
 
       print(
           '##15dec ขนาดของ databaseModels ---> ${appController.databaseModels.length}');
+    });
+  }
+
+  Future<void> insertNewTree({
+    required String idRec,
+    required String idTree,
+    required String nameTree,
+    required String urlImage,
+    required String lat,
+    required String lng,
+    required String dateTimeRec,
+  }) async {
+    String urlAPI =
+        'https://www.androidthai.in.th/edumall/oil/insertTree.php?isAdd=true&idRec=$idRec&idTree=$idTree&nameTree=$nameTree&urlImage=$urlImage&lat=$lat&lng=$lng&dateTimeRec=$dateTimeRec';
+
+    await Dio().get(urlAPI).then((value) {
+      Get.snackbar('Insert Tree Success', 'Inser Tree Data Success',
+          backgroundColor: GFColors.INFO);
     });
   }
 }
