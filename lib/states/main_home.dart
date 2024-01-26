@@ -68,8 +68,16 @@ class _MainHomeState extends State<MainHome> {
                       data: 'Add Tree',
                       pressFunc: () {
                         if (appController.files.isEmpty) {
-                          Get.snackbar('No Image ?', 'Please Take Photo', backgroundColor: GFColors.DANGER, colorText: Colors.white);
-                        }
+                          Get.snackbar('No Image ?', 'Please Take Photo',
+                              backgroundColor: GFColors.DANGER,
+                              colorText: Colors.white);
+                        } else if (appController.chooseDatabaseModels.last ==
+                            null) {
+                          Get.snackbar('No Name Tree ?',
+                              'Please Choose Name Tree From Dropdown',
+                              backgroundColor: GFColors.DANGER,
+                              colorText: GFColors.WHITE);
+                        } else {}
                       },
                     ),
                   )
