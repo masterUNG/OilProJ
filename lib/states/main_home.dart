@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:oilproj/bodys/add_tree.dart';
 import 'package:oilproj/bodys/profile.dart';
 import 'package:oilproj/bodys/show_map.dart';
@@ -65,7 +66,11 @@ class _MainHomeState extends State<MainHome> {
                     margin: const EdgeInsets.only(right: 16),
                     child: WidgetButton(
                       data: 'Add Tree',
-                      pressFunc: () {},
+                      pressFunc: () {
+                        if (appController.files.isEmpty) {
+                          Get.snackbar('No Image ?', 'Please Take Photo', backgroundColor: GFColors.DANGER, colorText: Colors.white);
+                        }
+                      },
                     ),
                   )
                 : const SizedBox(),
